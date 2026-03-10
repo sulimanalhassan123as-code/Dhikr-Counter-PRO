@@ -1,90 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <title>Dhikr Counter PRO</title>
 
 <link rel="manifest" href="manifest.json">
 <link rel="stylesheet" href="style.css">
 
-<meta name="theme-color" content="#0c3b2e">
-<meta name="description" content="Motivational Dhikr Counter with statistics and Ramadan mode">
-
-<link rel="icon" href="icon-192.png">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
 <body>
 
-<header class="header">
+<header>
 <h1>🌙 Dhikr Counter PRO</h1>
 </header>
 
-<!-- HOME DASHBOARD -->
+<section id="dashboard">
 
-<section id="home-screen">
-
-<div class="dashboard">
-
-<div class="card">
 <h2>Today's Dhikr</h2>
-<p id="today-count">0</p>
-</div>
+<p id="todayCount">0</p>
 
-<div class="card">
-<h2>🔥 Streak</h2>
-<p id="streak">0 days</p>
-</div>
+<h3 id="level">Level: Beginner</h3>
 
-<div class="card">
-<h2>⭐ Level</h2>
-<p id="level">Beginner</p>
-</div>
+<h3 id="streak">🔥 Streak: 0</h3>
 
-</div>
-
-<button id="start-btn" class="main-btn">Start Dhikr</button>
-
-<h3>Community Dhikr Today</h3>
-
-<ul id="leaderboard">
-</ul>
+<button id="startBtn">Start Dhikr</button>
 
 </section>
 
-<!-- COUNTER SCREEN -->
+<section id="counterScreen">
 
-<section id="counter-screen">
+<h2 id="dhikrTitle">SubhanAllah</h2>
 
-<button id="back-btn">← Back</button>
+<p id="arabic">سُبْحَانَ ٱللَّٰهِ</p>
 
-<h2 id="dhikr-title"></h2>
+<p id="meaning">Glory be to Allah</p>
 
-<p id="dhikr-arabic"></p>
-<p id="dhikr-meaning"></p>
+<div id="count">0</div>
 
-<div id="counter-number">0</div>
-
-<div class="progress-container">
-<div id="progress-bar"></div>
+<div class="progress">
+<div id="progressBar"></div>
 </div>
 
-<p id="target-text">/ 33</p>
-
-<button id="tap-btn">Tap for Dhikr</button>
+<button id="tapBtn">Tap</button>
 
 </section>
 
-<!-- ROCKET REWARD -->
+<section id="stats">
+
+<canvas id="dhikrChart"></canvas>
+
+</section>
+
+<section id="assistant">
+
+<h3>AI Assistant</h3>
+
+<p id="aiMessage"></p>
+
+</section>
 
 <div id="rocket">🚀</div>
 
-<!-- AUDIO -->
-
-<audio id="tasbih-sound" src="tasbih.mp3"></audio>
+<audio id="sound" src="tasbih.mp3"></audio>
 
 <script src="script.js"></script>
+<script src="ai.js"></script>
 
 </body>
 </html>
