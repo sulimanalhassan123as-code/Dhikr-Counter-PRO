@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhikr Counter PRO</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2E7D32">
+<meta name="description" content="Dhikr Counter PRO with Tasbih, notifications, statistics, and Ramadan mode.">
+<link rel="icon" href="icon-192.png">
+</head>
+<body>
+
+<!-- Setup Screen -->
+<div id="setup-screen" class="screen active">
+<header>
+<h1>🌙 Dhikr Counter PRO</h1>
+<button id="dark-mode-toggle">🌙</button>
+</header>
+<main>
+
+<h2>Daily Dhikr</h2>
+<div class="preset-buttons">
+<button class="preset-btn" data-target="33" data-text="SubhanAllah (33)">SubhanAllah (33)</button>
+<button class="preset-btn" data-target="33" data-text="Alhamdulillah (33)">Alhamdulillah (33)</button>
+<button class="preset-btn" data-target="34" data-text="Allahu Akbar (34)">Allahu Akbar (34)</button>
+<button class="preset-btn" data-target="100" data-text="Astaghfirullah (100)">Astaghfirullah (100)</button>
+</div>
+
+<h2>Laylatul Qadr Dhikr</h2>
+<div class="preset-buttons">
+<button class="preset-btn" data-target="100" data-text="Allahumma innaka afuwwun tuhibbul afwa fa'fu anni">Allahumma Afuwwun</button>
+<button class="preset-btn" data-target="100" data-text="SubhanAllahi wa bihamdihi">SubhanAllahi wa bihamdihi</button>
+<button class="preset-btn" data-target="100" data-text="SubhanAllahil Azeem">SubhanAllahil Azeem</button>
+<button class="preset-btn" data-target="100" data-text="La ilaha illa anta subhanaka inni kuntu minaz-zalimin">Dua Yunus</button>
+</div>
+
+<h2>Custom Target</h2>
+<div class="custom-target">
+<input type="number" id="custom-target-input" placeholder="Example: 500">
+<button id="use-custom-btn">Start Custom</button>
+</div>
+
+<div class="statistics-box">
+<p id="daily-stats">Today's Dhikr: 0</p>
+<p id="daily-reminder"></p>
+</div>
+
+</main>
+<footer>
+<p>Created by <strong>Suleiman Alhassan</strong></p>
+</footer>
+</div>
+
+<!-- Counter Screen -->
+<div id="counter-screen" class="screen">
+<div class="counter-header">
+<button id="reset-btn">← Back</button>
+<p id="current-dhikr-text"></p>
+</div>
+<div id="tap-area">
+<p id="count-display">0</p>
+<p id="target-display">/ 100</p>
+</div>
+<div class="counter-footer">
+<button id="manual-reset-btn">Reset Count</button>
+</div>
+</div>
+
+<!-- WhatsApp Contact -->
+<a id="whatsapp-btn" href="https://wa.me/233599931348" target="_blank">💬</a>
+
+<!-- Tasbih Sound -->
+<audio id="tasbih-sound" src="tasbih.mp3"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
