@@ -1,13 +1,13 @@
 {
-"name":"Dhikr Counter PRO",
-"short_name":"DhikrPRO",
-"start_url":"./index.html",
-"display":"standalone",
-"background_color":"#ffffff",
-"theme_color":"#2E7D32",
-"description":"Dhikr Counter PRO with Tasbih, notifications, statistics, and Ramadan mode.",
-"icons":[
-{"src":"icon-192.png","sizes":"192x192","type":"image/png"},
-{"src":"icon-512.png","sizes":"512x512","type":"image/png"}
-]
+  "name": "Dhikr Counter PRO",
+  "short_name": "DhikrPRO",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#064e3b",
+  "description": "Premium Dhikr Counter by Suleiman Alhassan with Tasbih, notifications, and advanced statistics.",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"}
+  ]
 }
