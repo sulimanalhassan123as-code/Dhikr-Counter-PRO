@@ -1,79 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dhikr Counter PRO</title>
-<link rel="stylesheet" href="style.css">
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#2E7D32">
-<meta name="description" content="Dhikr Counter PRO with Tasbih, notifications, statistics, and Ramadan mode.">
-<link rel="icon" href="icon-192.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhikr Counter PRO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#064e3b">
+    <meta name="description" content="Premium Dhikr Counter PRO with Tasbih, smart notifications, and advanced statistics.">
+    <link rel="icon" href="icon-192.png">
 </head>
 <body>
 
-<!-- Setup Screen -->
-<div id="setup-screen" class="screen active">
-<header>
-<h1>🌙 Dhikr Counter PRO</h1>
-<button id="dark-mode-toggle">🌙</button>
-</header>
-<main>
+    <div id="setup-screen" class="screen active">
+        <header>
+            <h1>🌙 Dhikr PRO</h1>
+            <button id="dark-mode-toggle">🌙</button>
+        </header>
+        <main>
+            
+            <div class="statistics-glass-box">
+                <div class="stat-item">
+                    <span class="stat-label">Today</span>
+                    <strong id="daily-stats">0</strong>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Streak</span>
+                    <strong id="streak-stats">0 🔥</strong>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Lifetime</span>
+                    <strong id="lifetime-stats">0</strong>
+                </div>
+            </div>
+            <p id="daily-reminder" class="reminder-text"></p>
 
-<h2>Daily Dhikr</h2>
-<div class="preset-buttons">
-<button class="preset-btn" data-target="33" data-text="SubhanAllah (33)">SubhanAllah (33)</button>
-<button class="preset-btn" data-target="33" data-text="Alhamdulillah (33)">Alhamdulillah (33)</button>
-<button class="preset-btn" data-target="34" data-text="Allahu Akbar (34)">Allahu Akbar (34)</button>
-<button class="preset-btn" data-target="100" data-text="Astaghfirullah (100)">Astaghfirullah (100)</button>
-</div>
+            <h2>Daily Dhikr</h2>
+            <div class="preset-buttons">
+                <button class="preset-btn" data-target="33" data-text="SubhanAllah">SubhanAllah (33)</button>
+                <button class="preset-btn" data-target="33" data-text="Alhamdulillah">Alhamdulillah (33)</button>
+                <button class="preset-btn" data-target="34" data-text="Allahu Akbar">Allahu Akbar (34)</button>
+                <button class="preset-btn" data-target="100" data-text="Astaghfirullah">Astaghfirullah (100)</button>
+            </div>
 
-<h2>Laylatul Qadr Dhikr</h2>
-<div class="preset-buttons">
-<button class="preset-btn" data-target="100" data-text="Allahumma innaka afuwwun tuhibbul afwa fa'fu anni">Allahumma Afuwwun</button>
-<button class="preset-btn" data-target="100" data-text="SubhanAllahi wa bihamdihi">SubhanAllahi wa bihamdihi</button>
-<button class="preset-btn" data-target="100" data-text="SubhanAllahil Azeem">SubhanAllahil Azeem</button>
-<button class="preset-btn" data-target="100" data-text="La ilaha illa anta subhanaka inni kuntu minaz-zalimin">Dua Yunus</button>
-</div>
+            <h2>Custom Target</h2>
+            <div class="custom-target">
+                <input type="number" id="custom-target-input" placeholder="e.g. 500">
+                <button id="use-custom-btn" class="gold-btn">Start</button>
+            </div>
 
-<h2>Custom Target</h2>
-<div class="custom-target">
-<input type="number" id="custom-target-input" placeholder="Example: 500">
-<button id="use-custom-btn">Start Custom</button>
-</div>
+        </main>
+        <footer>
+            <p>Powered by <strong>Suleiman Alhassan</strong></p>
+        </footer>
+    </div>
 
-<div class="statistics-box">
-<p id="daily-stats">Today's Dhikr: 0</p>
-<p id="daily-reminder"></p>
-</div>
+    <div id="counter-screen" class="screen">
+        <div class="counter-header">
+            <button id="reset-btn" class="icon-btn">← Back</button>
+            <button id="lock-btn" class="icon-btn">🔓</button>
+        </div>
+        
+        <p id="current-dhikr-text"></p>
+        
+        <div id="tap-area">
+            <div class="tap-circle">
+                <p id="count-display">0</p>
+                <p id="target-display">/ 100</p>
+            </div>
+        </div>
+        
+        <div class="counter-footer">
+            <button id="manual-reset-btn" class="danger-btn">Reset</button>
+            <button id="share-btn" class="gold-btn">Share 💬</button>
+        </div>
+    </div>
 
-</main>
-<footer>
-<p>Created by <strong>Suleiman Alhassan</strong></p>
-</footer>
-</div>
+    <a id="whatsapp-btn" href="https://wa.me/233599931348" target="_blank">💬</a>
 
-<!-- Counter Screen -->
-<div id="counter-screen" class="screen">
-<div class="counter-header">
-<button id="reset-btn">← Back</button>
-<p id="current-dhikr-text"></p>
-</div>
-<div id="tap-area">
-<p id="count-display">0</p>
-<p id="target-display">/ 100</p>
-</div>
-<div class="counter-footer">
-<button id="manual-reset-btn">Reset Count</button>
-</div>
-</div>
+    <audio id="tasbih-sound" src="tasbih.mp3" preload="auto"></audio>
 
-<!-- WhatsApp Contact -->
-<a id="whatsapp-btn" href="https://wa.me/233599931348" target="_blank">💬</a>
-
-<!-- Tasbih Sound -->
-<audio id="tasbih-sound" src="tasbih.mp3"></audio>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
