@@ -1,49 +1,107 @@
 :root {
---bg-light:#F0F4F0;
---text-light:#1A2E1A;
---primary:#2E7D32;
---bg-dark:#121212;
---text-dark:#E0E0E0;
---primary-dark:#66BB6A;
---ramadan:#FFD700;
+    --bg-light: #f0fdf4;
+    --text-light: #064e3b;
+    --primary: #059669;
+    --primary-dark: #047857;
+    --gold: #d4af37;
+    --gold-dark: #b5952f;
+    --bg-dark: #0f172a;
+    --text-dark: #f8fafc;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.5);
 }
 
-body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:var(--bg-light);
-color:var(--text-light);
-transition:0.3s;
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-light);
+    color: var(--text-light);
+    transition: background 0.4s, color 0.4s;
+    user-select: none; /* Prevents text highlighting while tapping */
 }
-body.dark-mode{background:var(--bg-dark); color:var(--text-dark);}
-body.ramadan{background:var(--ramadan); color:#000;}
 
-.screen{display:none; flex-direction:column; min-height:100vh; padding:20px;}
-.screen.active{display:flex;}
+body.dark-mode {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+    --glass-bg: rgba(15, 23, 42, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
 
-header{ text-align:center; position:relative; }
-#dark-mode-toggle{ position:absolute; right:10px; top:10px; border:none; background:none; font-size:22px; cursor:pointer; }
+.screen { display: none; flex-direction: column; min-height: 100vh; padding: 20px; box-sizing: border-box; }
+.screen.active { display: flex; }
 
-main{flex:1; display:flex; flex-direction:column; align-items:center; gap:20px;}
+header { text-align: center; position: relative; margin-bottom: 20px; }
+h1 { color: var(--primary); margin: 0; font-size: 28px; }
+body.dark-mode h1 { color: var(--gold); }
 
-.preset-buttons{display:grid; grid-template-columns:1fr 1fr; gap:10px; width:100%; max-width:400px;}
-button{padding:15px; border:none; border-radius:10px; background:var(--primary); color:white; font-weight:bold; cursor:pointer; transition:0.1s;}
-button:active{transform:scale(0.95);}
-body.dark-mode button{background:var(--primary-dark);}
+#dark-mode-toggle {
+    position: absolute; right: 0; top: 0; border: none; background: none; 
+    font-size: 24px; cursor: pointer; transition: transform 0.2s;
+}
+#dark-mode-toggle:active { transform: scale(0.8); }
 
-.custom-target{display:flex; gap:10px; width:100%; max-width:400px;}
-input{flex:1; padding:15px; border-radius:10px; border:2px solid #ccc; font-size:16px;}
+main { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%; max-width: 500px; margin: 0 auto; }
 
-#tap-area{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer;}
-#count-display{font-size:90px; font-weight:bold; color:var(--primary);}
-body.dark-mode #count-display{color:var(--primary-dark);}
-#target-display{font-size:28px;}
-.tap{transform:scale(0.95);}
+/* Glassmorphism Stats Box */
+.statistics-glass-box {
+    display: flex; justify-content: space-around; width: 100%;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 20px; padding: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.stat-item { display: flex; flex-direction: column; align-items: center; }
+.stat-label { font-size: 12px; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px; }
+.stat-item strong { font-size: 20px; color: var(--primary); margin-top: 5px; }
+body.dark-mode .stat-item strong { color: var(--gold); }
 
-.counter-header{display:flex; justify-content:space-between;}
-.counter-footer{text-align:center;}
-#manual-reset-btn{background:#777;}
+.reminder-text { font-style: italic; text-align: center; font-size: 14px; opacity: 0.8; margin: 0; }
 
-#install-btn{position:fixed; bottom:20px; left:20px; padding:12px 18px; border-radius:10px; border:none; background:var(--primary); color:white; font-weight:bold; display:none;}
-#whatsapp-btn{position:fixed; right:20px; bottom:20px; background:#25D366; color:white; font-size:28px; width:60px; height:60px; display:flex; align-items:center; justify-content:center; border-radius:50%; text-decoration:none;}
-.statistics-box{text-align:center; max-width:400px; opacity:0.8;}
+h2 { font-size: 18px; align-self: flex-start; margin: 10px 0 0 0; opacity: 0.9; }
+
+/* Buttons */
+.preset-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; }
+button {
+    padding: 16px; border: none; border-radius: 12px; background: var(--primary); 
+    color: white; font-weight: bold; font-size: 14px; cursor: pointer; 
+    transition: all 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+button:active { transform: scale(0.95); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+body.dark-mode button { background: var(--primary-dark); }
+
+.gold-btn { background: var(--gold); color: #000; }
+.gold-btn:active { background: var(--gold-dark); }
+.danger-btn { background: #ef4444; }
+
+.custom-target { display: flex; gap: 10px; width: 100%; }
+input {
+    flex: 1; padding: 15px; border-radius: 12px; border: 2px solid var(--primary);
+    background: transparent; color: inherit; font-size: 16px; outline: none;
+}
+body.dark-mode input { border-color: var(--gold); }
+
+/* Counter Screen */
+.counter-header { display: flex; justify-content: space-between; width: 100%; max-width: 500px; margin: 0 auto; }
+.icon-btn { background: transparent; color: inherit; box-shadow: none; font-size: 18px; padding: 10px; border: 1px solid var(--glass-border); }
+
+#current-dhikr-text { text-align: center; font-size: 24px; font-weight: bold; margin: 20px 0; color: var(--primary); }
+body.dark-mode #current-dhikr-text { color: var(--gold); }
+
+/* The Tap Area */
+#tap-area { flex: 1; display: flex; align-items: center; justify-content: center; width: 100%; cursor: pointer; }
+.tap-circle {
+    width: 250px; height: 250px; border-radius: 50%;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 4px solid var(--primary); display: flex; flex-direction: column;
+    align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(5, 150, 105, 0.2);
+    transition: transform 0.1s;
+}
+body.dark-mode .tap-circle { border-color: var(--gold); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2); }
+#count-display { font-size: 80px; font-weight: bold; margin: 0; line-height: 1; }
+#target-display { font-size: 24px; opacity: 0.7; margin-top: 5px; }
+.tap-circle.tap { transform: scale(0.92); background: rgba(5, 150, 105, 0.1); }
+
+.counter-footer { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
+
+/* Floating Elements */
+#whatsapp-btn { position: fixed; right: 20px; bottom: 20px; background: #25D366; color: white; font-size: 28px; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 100;}
+footer { text-align: center; font-size: 12px; opacity: 0.6; margin-top: 20px; }
