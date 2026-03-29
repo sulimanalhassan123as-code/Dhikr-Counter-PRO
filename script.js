@@ -169,7 +169,7 @@ function resetCount() {
 // Share Function
 function shareProgress() {
     let today = localStorage.getItem("dhikr_today") || 0;
-    let text = `🌙 Alhamdullilah! I have completed ${today} Dhikr today using *Never Hide Dhikr PRO*. May Allah accept our prayers. 🤲`;
+    let text = `🌙 Alhamdullilah! I have completed ${today} Dhikr today using *Never Hide Dhikr PRO*. May Allah accept our prayers. 🤲 https://starboy-pi.vercel.app`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
 }
 
