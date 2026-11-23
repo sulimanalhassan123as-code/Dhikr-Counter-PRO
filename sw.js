@@ -1,9 +1,10 @@
-const CACHE = "dhikr-pro-premium-v1";
+const CACHE = "dhikr-pro-premium-v2";
 const urls = [
   "./",
   "./index.html",
   "./style.css",
-  "./script.js"
+  "./script.js",
+  "./tasbih.wav"
 ];
 
 self.addEventListener("install", e => {
